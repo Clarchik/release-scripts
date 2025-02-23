@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clarchik/release-scripts.git"
+    "url": "https://github.com/Clarchik/release-scripts"
   },
   "scripts": {
     "build": "tnode scripts/build.ts",
