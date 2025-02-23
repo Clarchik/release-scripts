@@ -1,7 +1,7 @@
 import semver from 'semver';
 import {
   args,
-  getActiveVersion,
+  getActiveReleasedVersion,
   getPackageInfo,
   publishPackage,
   step
@@ -17,26 +17,27 @@ export const publish: typeof def = async ({
   const tag = args._[0];
   if (!tag) throw new Error('No tag specified');
 
-  let pkgName = defaultPackage;
-  let version;
+  let releasedPkgName = defaultPackage;
+  let releasedVersion;
 
-  if (tag.includes('@')) [pkgName, version] = tag.split('@');
-  else version = tag;
+  if (tag.includes('@')) [releasedPkgName, releasedVersion] = tag.split('@');
+  else releasedVersion = tag;
 
-  if (version.startsWith('v')) version = version.slice(1);
+  if (releasedVersion.startsWith('v'))
+    releasedVersion = releasedVersion.slice(1);
 
-  const { pkg, pkgDir } = getPackageInfo(pkgName, getPkgDir);
-  if (pkg.version !== version)
+  const { pkg, pkgDir } = getPackageInfo(releasedPkgName, getPkgDir);
+  if (pkg.version !== releasedVersion)
     throw new Error(
-      `Package version from tag "${version}" mismatches with current version "${pkg.version}"`
+      `Package version from tag "${releasedVersion}" mismatches with current version "${pkg.version}"`
     );
 
-  const activeVersion = await getActiveVersion(pkg.name);
+  const activeVersion = await getActiveReleasedVersion(pkg.name);
 
   step('Publishing package...');
-  const releaseTag = version.includes('beta')
+  const releaseTag = releasedVersion.includes('beta')
     ? 'beta'
-    : version.includes('alpha')
+    : releasedVersion.includes('alpha')
       ? 'alpha'
       : activeVersion && semver.lt(pkg.version, activeVersion)
         ? 'previous'

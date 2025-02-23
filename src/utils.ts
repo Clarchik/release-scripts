@@ -155,7 +155,7 @@ export async function publishPackage(
   });
 }
 
-export async function getActiveVersion(
+export async function getActiveReleasedVersion(
   npmName: string
 ): Promise<string | undefined> {
   try {
