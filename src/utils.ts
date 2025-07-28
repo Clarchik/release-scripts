@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import colors from 'picocolors';
-import type { Options as ExecaOptions, ExecaReturnValue } from 'execa';
+import type { Options as ExecaOptions, Result } from 'execa';
 import { execa } from 'execa';
 import type { ReleaseType } from 'semver';
 import semver from 'semver';
@@ -39,7 +39,7 @@ export async function run(
   bin: string,
   args: string[],
   opts: ExecaOptions = {}
-): Promise<ExecaReturnValue> {
+): Promise<Result> {
   return execa(bin, args, { stdio: 'inherit', ...opts });
 }
 
@@ -160,7 +160,7 @@ export async function getActiveReleasedVersion(
 ): Promise<string | undefined> {
   try {
     return (await run('npm', ['info', npmName, 'version'], { stdio: 'pipe' }))
-      .stdout;
+      .stdout as string;
   } catch (e: any) {
     // Not published yet
     if (e.stderr.startsWith('npm error code E404')) {
