@@ -1,4 +1,5 @@
 import { writeFileSync, readFileSync } from 'node:fs';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import colors from 'picocolors';
 import type { Options as ExecaOptions, Result } from 'execa';
@@ -6,6 +7,7 @@ import { execa } from 'execa';
 import type { ReleaseType } from 'semver';
 import semver from 'semver';
 import mri from 'mri';
+import { logRecentCommits as logRecCom, getLatestTag as ltTag } from './types';
 
 export const args = mri(process.argv.slice(2));
 
@@ -170,3 +172,32 @@ export async function getActiveReleasedVersion(
     }
   }
 }
+
+export const getLatestTag: typeof ltTag = async (
+  getPkgDir
+): Promise<string> => {
+  const pkgJson = JSON.parse(
+    await fs.readFile(`${getPkgDir()}/package.json`, 'utf-8')
+  );
+  return `v${pkgJson.version}`;
+};
+
+export const logRecentCommits: typeof logRecCom = async (
+  getPkgDir
+): Promise<void> => {
+  const tag = await getLatestTag(getPkgDir);
+  if (!tag) return;
+  const sha = await run('git', ['rev-list', '-n', '1', tag], {
+    stdio: 'pipe'
+  }).then((res) => res.stdout?.toString().trim());
+  if (!sha) return;
+  console.log(
+    colors.bold(
+      `\n${colors.blue(`i`)} Commits since ${colors.green(tag)} ${colors.gray(`(${sha.slice(0, 5)})`)}`
+    )
+  );
+  await run('git', ['--no-pager', 'log', `${sha}..HEAD`, '--oneline', '--'], {
+    stdio: 'inherit'
+  });
+  console.log();
+};

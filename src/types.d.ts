@@ -22,3 +22,14 @@ export declare function release(options: {
   toTag: (pkg: string, version: string) => string;
   getPkgDir?: (pkg: string) => string;
 }): Promise<void>;
+
+export declare function generateChangelog(options: {
+  /** @example () => `packages/${pkgName}` */
+  getPkgDir: () => string;
+  /** @example `${pkgName}@` */
+  tagPrefix?: string;
+}): Promise<void>;
+
+export declare function getLatestTag(getPkgDir: () => string): Promise<string>;
+
+export declare function logRecentCommits(getPkgDir: () => string): Promise<void>;
