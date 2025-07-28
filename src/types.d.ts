@@ -32,4 +32,6 @@ export declare function generateChangelog(options: {
 
 export declare function getLatestTag(getPkgDir: () => string): Promise<string>;
 
-export declare function logRecentCommits(getPkgDir: () => string): Promise<void>;
+export declare function logRecentCommits(
+  getPkgDir: () => string
+): Promise<void>;
