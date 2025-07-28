@@ -1,3 +1,9 @@
+## <small>[0.0.6](https://github.com/Clarchik/release-scripts/compare/v0.0.5...v0.0.6) (2025-07-28)</small>
+### Bug Fixes
+
+* ignore change log file ([f788b78](https://github.com/Clarchik/release-scripts/commit/f788b78f0ff55d2f661da8818909fbdb20fcda13))
+* ignore md files ([d6217bf](https://github.com/Clarchik/release-scripts/commit/d6217bf5ae19dca968dbe7715d8f70a0eae79208))
+
 ## <small>[0.0.5](https://github.com/Clarchik/release-scripts/compare/v0.0.4...v0.0.5) (2025-07-28)</small>
 ### Bug Fixes
 
