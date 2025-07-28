@@ -21,7 +21,7 @@
   "scripts": {
     "build": "tnode scripts/build.ts",
     "prettier": "pnpm prettier-ci --write",
-    "prettier-ci": "prettier --cache --ignore-path=.gitignore CHANGELOG.md --check '**/*.{ts,json,md,yml}'",
+    "prettier-ci": "prettier --cache --ignore-path=.gitignore --check '**/*.{ts,json,yml}'",
     "qa": "tsc && pnpm prettier-ci && pnpm build",
     "release": "tnode scripts/release.ts",
     "publish:main": "tnode scripts/publish.ts"
