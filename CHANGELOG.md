@@ -1,3 +1,8 @@
+## <small>[0.0.5](https://github.com/Clarchik/release-scripts/compare/v0.0.4...v0.0.5) (2025-07-28)</small>
+### Bug Fixes
+
+* code styling and formatation ([b4eb9b9](https://github.com/Clarchik/release-scripts/commit/b4eb9b916fee8883a32b22ff06d5b309937ec863))
+
 ## <small>[0.0.4](https://github.com/Clarchik/release-scripts/compare/v0.0.3...v0.0.4) (2025-07-28)</small>
 
 ### Features
