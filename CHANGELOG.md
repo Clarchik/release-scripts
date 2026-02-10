@@ -1,3 +1,8 @@
+## [1.0.0](https://github.com/Clarchik/release-scripts/compare/v0.0.7...v1.0.0) (2026-02-10)
+### Miscellaneous Chores
+
+* update packages version ([ba66902](https://github.com/Clarchik/release-scripts/commit/ba669021df2f75fdcfe9e672a8d3f73b9b789e2c))
+
 ## <small>[0.0.7](https://github.com/Clarchik/release-scripts/compare/v0.0.6...v0.0.7) (2025-09-09)</small>
 ### Miscellaneous Chores
 

@@ -1,6 +1,6 @@
 {
   "name": "@clarchikjs/release-scripts",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "release scripts",
   "license": "MIT",
   "main": "dist/index.js",
