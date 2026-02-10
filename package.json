@@ -24,27 +24,28 @@
     "prettier-ci": "prettier --cache --ignore-path=.gitignore --check '**/*.{ts,json,yml}'",
     "qa": "tsc && pnpm prettier-ci && pnpm build",
     "release": "tnode scripts/release.ts",
-    "publish:main": "tnode scripts/publish.ts"
+    "publish:main": "tnode scripts/publish.ts",
+    "update-packages": "npm-check-updates -c 1 -u"
   },
   "dependencies": {
     "conventional-changelog": "^7.1.1",
     "conventional-changelog-conventionalcommits": "^9.1.0",
-    "execa": "^9.6.0",
+    "execa": "^9.6.1",
     "mri": "^1.2.0",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
-    "publint": "^0.3.12",
-    "semver": "^7.7.2"
+    "publint": "^0.3.17",
+    "semver": "^7.7.4"
   },
   "devDependencies": {
     "@arnaud-barre/tnode": "^0.25.0",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/config-conventional": "^20.4.1",
     "@types/node": "^24.3.1",
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.7.1",
     "conventional-changelog-cli": "^5.0.0",
-    "esbuild": "^0.25.9",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.2"
+    "esbuild": "^0.27.3",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   }
 }
