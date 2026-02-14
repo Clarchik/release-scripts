@@ -1,3 +1,8 @@
+## <small>[1.0.1](https://github.com/Clarchik/release-scripts/compare/v1.0.0...v1.0.1) (2026-02-14)</small>
+### Miscellaneous Chores
+
+* remove npm token ([c6725c6](https://github.com/Clarchik/release-scripts/commit/c6725c6369f1f9cb9aed38298c65843f2b71bb9c))
+
 ## [1.0.0](https://github.com/Clarchik/release-scripts/compare/v0.0.7...v1.0.0) (2026-02-10)
 ### Miscellaneous Chores
 
