@@ -1,3 +1,8 @@
+## <small>[1.0.2](https://github.com/Clarchik/release-scripts/compare/v1.0.1...v1.0.2) (2026-02-14)</small>
+### Miscellaneous Chores
+
+* seperate publish/release workflows ([9e3513a](https://github.com/Clarchik/release-scripts/commit/9e3513a4623f0bbc10e6e9351da1aa3d289e27ef))
+
 ## <small>[1.0.1](https://github.com/Clarchik/release-scripts/compare/v1.0.0...v1.0.1) (2026-02-14)</small>
 ### Miscellaneous Chores
 
