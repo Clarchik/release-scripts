@@ -9,7 +9,6 @@ permissions:
   id-token: write
   contents: read
 
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -32,5 +31,3 @@ jobs:
         run: pnpm build
       - name: Publish
         run: pnpm publish:main ${{ github.ref_name }}
-   
-
