@@ -1,3 +1,9 @@
+## <small>[1.0.3](https://github.com/Clarchik/release-scripts/compare/v1.0.1...v1.0.3) (2026-02-14)</small>
+### Miscellaneous Chores
+
+* bump pnpm version in workflow ([16eadb7](https://github.com/Clarchik/release-scripts/commit/16eadb77b1e3ee8583a919f788eca6fee820ce39))
+* seperate publish/release workflows ([9e3513a](https://github.com/Clarchik/release-scripts/commit/9e3513a4623f0bbc10e6e9351da1aa3d289e27ef))
+
 ## <small>[1.0.2](https://github.com/Clarchik/release-scripts/compare/v1.0.1...v1.0.2) (2026-02-14)</small>
 ### Miscellaneous Chores
 
