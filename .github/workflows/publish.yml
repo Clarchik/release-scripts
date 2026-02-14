@@ -2,32 +2,30 @@ name: Publish
 
 on:
   push:
-    tags:
-      - 'v*'
-
-permissions:
-  id-token: write
-  contents: read
+    branches:
+    - test-publish
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: github
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v4.2.0
         with:
-          version: 10.29
-      - uses: actions/setup-node@v4
+          version: latest
+      - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: "24.x"
           registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
       - name: Install deps
         run: pnpm install --prefer-offline
       - name: Build
         run: pnpm build
       - name: Publish
-        run: pnpm publish:main ${{ github.ref_name }}
+        run: pnpm publish --access public --no-git-checks --tag not-real
