@@ -46,8 +46,7 @@ jobs:
         run: pnpm build
       - name: Publish
         run: pnpm publish:main ${{ github.ref_name }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+   
 
 permissions:
   id-token: write
