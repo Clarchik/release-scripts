@@ -1,3 +1,12 @@
+## <small>[1.0.7](https://github.com/Clarchik/release-scripts/compare/v1.0.6...v1.0.7) (2026-03-23)</small>
+### Miscellaneous Chores
+
+* bump dependency versions ([a788c4e](https://github.com/Clarchik/release-scripts/commit/a788c4e017cc92c72bb72949bdba76300a38c896))
+
+### Continuous Integration
+
+* pin actions to SHAs and upgrade versions in CI workflow ([a63922b](https://github.com/Clarchik/release-scripts/commit/a63922bf9758338148820930faa7e194c9bd42ae))
+* pin actions to SHAs and upgrade versions in publish workflow ([c9cf967](https://github.com/Clarchik/release-scripts/commit/c9cf967229dd45ca4a1d2c04667678d32cb26898))
 ## <small>[1.0.6](https://github.com/Clarchik/release-scripts/compare/v1.0.1...v1.0.6) (2026-02-14)</small>
 ### Miscellaneous Chores
 
