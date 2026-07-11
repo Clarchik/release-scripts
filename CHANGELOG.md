@@ -1,3 +1,8 @@
+## [1.1.0](https://github.com/Clarchik/release-scripts/compare/v1.0.7...v1.1.0) (2026-07-11)
+
+### Bug Fixes
+
+* update code after bumping versions ([0f0e711](https://github.com/Clarchik/release-scripts/commit/0f0e71111ba90eff6a69a94c645288541e8632da))
 ## <small>[1.0.7](https://github.com/Clarchik/release-scripts/compare/v1.0.6...v1.0.7) (2026-03-23)</small>
 ### Miscellaneous Chores
 
