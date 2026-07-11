@@ -1,9 +1,8 @@
 import fs from 'node:fs';
 import { ConventionalChangelog, type Preset } from 'conventional-changelog';
-import createPreset, {
-  DEFAULT_COMMIT_TYPES
-  // @ts-expect-error no types
-} from 'conventional-changelog-conventionalcommits';
+import createPreset from 'conventional-changelog-conventionalcommits';
+// @ts-expect-error missing from package types, exported at runtime
+import { DEFAULT_COMMIT_TYPES } from 'conventional-changelog-conventionalcommits';
 import type { generateChangelog as def } from './types.d.ts';
 
 export const generateChangelog: typeof def = async ({
@@ -14,32 +13,23 @@ export const generateChangelog: typeof def = async ({
     types: DEFAULT_COMMIT_TYPES.map((t: any) => ({ ...t, hidden: false }))
   });
   preset.writer ??= {};
-  preset.writer.headerPartial = `
-## {{#if isPatch~}} <small> {{~/if~}}
-{{#if @root.linkCompare~}}
-[{{version}}](
-{{~#if @root.repository~}}
-  {{~#if @root.host}}
-    {{~@root.host}}/
-  {{~/if}}
-  {{~#if @root.owner}}
-    {{~@root.owner}}/
-  {{~/if}}
-  {{~@root.repository}}
-{{~else}}
-  {{~@root.repoUrl}}
-{{~/if~}}
-/compare/{{previousTag}}...{{currentTag}})
-{{~else}}
-{{~version}}
-{{~/if}}
-{{~#if title}} "{{title}}"
-{{~/if}}
-{{~#if date}} ({{date}})
-{{~/if}}
-{{~#if isPatch~}} </small> {{~/if}}
-`.trim();
-  preset.writer.mainTemplate! += '\n';
+  preset.writer.headerPartial = (context) => {
+    const repoUrl = context.repository
+      ? [context.host, context.owner, context.repository]
+          .filter(Boolean)
+          .join('/')
+      : context.repoUrl;
+    const version = context.version ?? '';
+    const versionText =
+      context.linkCompare && repoUrl
+        ? `[${version}](${repoUrl}/compare/${context.previousTag}...${context.currentTag})`
+        : version;
+    const title = context.title ? ` "${context.title}"` : '';
+    const date = context.date ? ` (${context.date})` : '';
+    const heading = `${versionText}${title}${date}`;
+
+    return context.isPatch ? `## <small> ${heading} </small>` : `## ${heading}`;
+  };
 
   const pkgDir = getPkgDir();
 
