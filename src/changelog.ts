@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import { ConventionalChangelog, type Preset } from 'conventional-changelog';
 import createPreset from 'conventional-changelog-conventionalcommits';
-// @ts-expect-error missing from package types, exported at runtime
 import { DEFAULT_COMMIT_TYPES } from 'conventional-changelog-conventionalcommits';
 import type { generateChangelog as def } from './types.d.ts';
 
