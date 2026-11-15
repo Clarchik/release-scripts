@@ -1,3 +1,4 @@
+## <small> [1.1.1](https://github.com/Clarchik/release-scripts/compare/v1.1.0...v1.1.1) (2026-11-15) </small>
 ## [1.1.0](https://github.com/Clarchik/release-scripts/compare/v1.0.7...v1.1.0) (2026-07-11)
 
 ### Bug Fixes
